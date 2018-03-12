@@ -21,6 +21,16 @@ class InventoryController extends Controller
         return view('customers');
     }
 
+    public function createOutComingView()
+    {
+        return view('createOutComing');
+    }
+
+    public function createInComingView()
+    {
+        return view('createInComing');
+    }
+
     public function departmentView()
     {
         return view('departments');

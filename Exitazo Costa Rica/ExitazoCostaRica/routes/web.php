@@ -35,10 +35,13 @@ Route::get('/salidas', 'InventoryController@outComingView');
 Route::get('/ventas', 'InventoryController@sellingView');
 Route::get('/ventasPorPeriodo', 'InventoryController@sellingPeriodView');
 //Create views
+Route::get('/crearAbono', 'CustomerController@paymentToAccountView');
 Route::get('/crearCliente', 'CustomerController@index');
 Route::get('/crearDepartamento', 'DepartmentController@index');
+Route::get('/crearEntrada', 'InventoryController@createInComingView');
 Route::get('/crearProducto', 'ProductController@index');
 Route::get('/crearPromocion', 'PromotionController@index');
+Route::get('/crearSalida', 'InventoryController@createOutComingView');
 
 Auth::routes();
 

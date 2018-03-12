@@ -45,13 +45,16 @@
     </div>
 </div>
 <br>
+<a href="/crearAbono" style="margin-left: 20%" class="btn btn-info cboxElement">Agregar abono</a>
+<br>
+<br>
 <div class="container">
   <table id="contentTable" class="table table-striped">
    <thead>
       <tr class="row-name">
          <th>Número de factura</th>
-         <th>Fecha de depósito</th>
-         <th>Monto del depósito</th>
+         <th>Fecha del abono</th>
+         <th>Monto del abono</th>
       </tr>
    </thead>   
    <tbody>
@@ -59,21 +62,41 @@
          <td>1</td>
          <td>12/01/2018</td>
          <td>90550</td>
+         <td>
+             <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </a>
+        </td>
       </tr>
       <tr class="row-content">
          <td> 1</td>
          <td>12/01/2018</td>
          <td>1000</td>
+         <td>
+            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </a>
+        </td>
       </tr>
       <tr class="row-content">
          <td> 1</td>
          <td>12/01/2018</td>
          <td>12500</td>
+         <td>
+            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </a>
+        </td>
       </tr>
       <tr class="row-content">
          <td> 1</td>
          <td>12/01/2018</td>
          <td>55000</td>
+         <td>
+            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </a>
+        </td>
       </tr>
    </tbody>
   </table>

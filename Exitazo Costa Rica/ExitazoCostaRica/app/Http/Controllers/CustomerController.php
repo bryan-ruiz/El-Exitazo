@@ -24,6 +24,12 @@ class CustomerController extends Controller
         return view('accountStatus');
     }
 
+    public function paymentToAccountView()
+    {
+        //
+        return view('createPaymentToAccount');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

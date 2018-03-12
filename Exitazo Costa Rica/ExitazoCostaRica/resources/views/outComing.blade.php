@@ -9,7 +9,7 @@
 <br>
 @include('partials.sellingsMenu')
 <br>
-<a href="/crearPromocion" style="margin-left: 20%" class="btn btn-info cboxElement">Agregar promoción</a>
+<a href="/crearSalida" style="margin-left: 20%" class="btn btn-info cboxElement">Agregar salida</a>
 <br>
 <br>
 <div class="container">
@@ -17,7 +17,7 @@
    <thead>
       <tr class="row-name">
          <th>Motivo</th>
-         <th>Cantidad</th>
+         <th>Monto de dinero</th>
       </tr>
    </thead>   
    <tbody>
