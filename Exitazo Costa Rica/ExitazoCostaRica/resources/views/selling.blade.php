@@ -117,7 +117,7 @@
   <div class="row">
     <h3 style="position: absolute;">Total:&nbsp <span>0</span></h3><h3 style="position: absolute; margin-left: 15%">Pagó con:&nbsp <span>crédito</span></h3><h3 style="position: absolute; margin-left: 35%">Cambio:&nbsp <span>0</span></h3>
     <a href="#" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 5%">Reimprimir último tiquete</a> 
-  <a href="#" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 1.5%">Ventas del dia y devoluciones</a>
+  <a href="/ventasDevoluciones" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 1.5%">Ventas del dia y devoluciones</a>
   </div>
 </div>
 </body>
@@ -156,6 +156,27 @@ function findBill() {
 function deleteBill() {
   var item = findBill();
   item.parentNode.removeChild(item);
+}
+
+document.addEventListener("keydown", keyDownTextField, false);
+function keyDownTextField(e) {
+var keyCode = e.keyCode;
+  //F10
+  if(keyCode==121) {
+  alert("You hit the F10.");
+  } 
+  //F11
+  else if(keyCode==122) {
+    alert("You hit the F11.");
+  }
+  //F7
+  else if(keyCode==118) {
+    window.location.href = "/entradas";
+  }
+  //F8
+  else if(keyCode==119) {
+    window.location.href = "/salidas";
+  }
 }
 </script>
 </html>

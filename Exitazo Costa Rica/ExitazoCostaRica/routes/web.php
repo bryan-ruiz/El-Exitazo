@@ -30,6 +30,7 @@ Route::get('/reporteDeMovimiento', 'InventoryController@movementReportView');
 
 Route::get('/entradas', 'InventoryController@inComingView');
 Route::get('/salidas', 'InventoryController@outComingView');
+Route::get('/ventasDevoluciones', 'InventoryController@salesAndReturnsView');
 
 
 Route::get('/ventas', 'InventoryController@sellingView');
