@@ -132,7 +132,7 @@ function loadSite() {
   document.getElementById("navBrand").style.color = "white";
   document.getElementById("navSellings").style.color = "white";
   document.getElementById("buttonBill").style.background = "#ccc";
-  document.getElementById("buttonDetail").style.background = "#ccc";
+  document.getElementById("buttonDetail").style.background = "#ccc";  
 }
 function getBillQuantity() {
     var bill = document.getElementById("billBar");
@@ -165,17 +165,21 @@ var keyCode = e.keyCode;
   if(keyCode==121) {
   alert("You hit the F10.");
   } 
+  //F12
+  else if(keyCode==123) {
+    alert("You hit the F12.");
+  }
   //F11
   else if(keyCode==122) {
     alert("You hit the F11.");
   }
-  //F7
-  else if(keyCode==118) {
-    window.location.href = "/entradas";
-  }
   //F8
   else if(keyCode==119) {
     window.location.href = "/salidas";
+  }
+  //F7
+  else if(keyCode==118) {
+    window.location.href = "/entradas";
   }
 }
 </script>

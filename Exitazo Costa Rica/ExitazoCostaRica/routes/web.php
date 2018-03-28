@@ -27,15 +27,14 @@ Route::get('/inventario', 'InventoryController@index');
 Route::get('/promocion', 'InventoryController@promotionView');
 Route::get('/reporteDeInventario', 'InventoryController@inventoryReportView');
 Route::get('/reporteDeMovimiento', 'InventoryController@movementReportView');
-
 Route::get('/entradas', 'InventoryController@inComingView');
 Route::get('/salidas', 'InventoryController@outComingView');
+Route::get('/tiqueteVentasDevoluciones', 'InventoryController@billSalesAndReturnsInfoView');
 Route::get('/ventasDevoluciones', 'InventoryController@salesAndReturnsView');
-
-
 Route::get('/ventas', 'InventoryController@sellingView');
 Route::get('/ventasPorPeriodo', 'InventoryController@sellingPeriodView');
-//Create views
+
+//Create - Update views
 Route::get('/crearAbono', 'CustomerController@paymentToAccountView');
 Route::get('/crearCliente', 'CustomerController@index');
 Route::get('/crearDepartamento', 'DepartmentController@index');
@@ -43,6 +42,9 @@ Route::get('/crearEntrada', 'InventoryController@createInComingView');
 Route::get('/crearProducto', 'ProductController@index');
 Route::get('/crearPromocion', 'PromotionController@index');
 Route::get('/crearSalida', 'InventoryController@createOutComingView');
+
+//CreateMethod
+Route::put('user/{id}', 'UserController@update');
 
 Auth::routes();
 

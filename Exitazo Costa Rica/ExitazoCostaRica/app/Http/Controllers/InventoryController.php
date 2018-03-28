@@ -46,6 +46,12 @@ class InventoryController extends Controller
         return view('salesAndReturns');
     }
 
+    public function billSalesAndReturnsInfoView()
+    {
+        return view('billSalesAndReturnsInfo');
+    }
+    
+
     public function promotionView()
     {
         return view('promotions');

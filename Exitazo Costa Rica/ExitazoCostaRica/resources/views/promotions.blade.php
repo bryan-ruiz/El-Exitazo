@@ -5,7 +5,6 @@
   @include('partials.style')
 </head>
 <body>
-
 @include('partials.nav')
 <br>
 @include('partials.inventoriesMenu')
