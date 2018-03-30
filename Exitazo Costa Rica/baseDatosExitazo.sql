@@ -30,15 +30,6 @@ create table DEPARTAMENTOS(
     primary key (nombreDepartamento)
 );
 
-insert into PRODUCTOS (codigoProducto varchar(50),
-    descripcion, 
-    precioCosto, 
-    precioVenta,
-    precioMayoreo,
-    nombreDepartamento, 
-    cantidadDeProduct, 
-    cantMinimaProd)
-
 create table PRODUCTOS(
 	codigoProducto varchar(50),
     descripcion varchar(400), 
