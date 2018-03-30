@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use App\Quotation;
 
 class InventoryController extends Controller
 {
@@ -13,7 +15,11 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        return view('inventories');
+        $productos = DB::table('PRODUCTOS')->select('codigoProducto', 'descripcion','precioCosto','precioVenta','precioMayoreo',
+            'nombreDepartamento','cantidadDeProduct','cantMinimaProd')->get();
+        //echo $productos;
+        //return $productos;
+        return view('inventories', compact('productos'));
     }
 
     public function customerView()

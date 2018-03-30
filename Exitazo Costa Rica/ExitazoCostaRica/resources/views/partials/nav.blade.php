@@ -13,7 +13,23 @@
         <li><a id="navSellings" href="/ventas">Ventas</a></li>
         <li><a id="navCustomers" href="/clientes">Clientes</a></li>
         <li><a id="navInventories" href="/inventario">Inventarios</a></li>
-        <li><a id="navEnds" href="#">Cortes</a></li> 
+        <li><a id="navEnds" href="#">Cortes</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->name }} <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                  Logout
+              </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+          </div>
+      </li>        
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

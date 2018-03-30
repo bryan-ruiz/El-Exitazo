@@ -12,13 +12,19 @@
 */
 
 Route::get('/', function () {
+    return view('auth/login');
+});
+
+/*
+Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('/login', function () {
     return view('login');
 });
-
+*/
 //Main views
 Route::get('/clientes', 'InventoryController@customerView');
 Route::get('/departamento', 'InventoryController@departmentView');
@@ -45,6 +51,10 @@ Route::get('/crearSalida', 'InventoryController@createOutComingView');
 
 //CreateMethod
 Route::put('user/{id}', 'UserController@update');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

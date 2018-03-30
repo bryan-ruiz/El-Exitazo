@@ -15,9 +15,9 @@
 <br>
 @include('partials.filterSearchBar')
 <br>
-<div class="container">
+<div class="container">  
   <table id="contentTable" class="table table-striped">
-   <thead>
+   <thead>      
       <tr class="row-name">
          <th>Código de barras</th>
          <th>Descripción</th>
@@ -30,15 +30,16 @@
       </tr>
    </thead>   
    <tbody>
-      <tr class="row-content">
-         <td>NC00</td>
-         <td>Zapatos ticos</td>
-         <td>2000</td>
-         <td>5000</td>
-         <td>2500</td>
-         <td>Zapatost</td>
-         <td>12345</td>
-         <td>1</td>
+      @foreach($productos as $productos)
+        <tr class="row-content">
+         <td>{{$productos->codigoProducto}}</td>
+         <td>{{$productos->descripcion}}</td>
+         <td>{{$productos->precioCosto}}</td>
+         <td>{{$productos->precioVenta}}</td>
+         <td>{{$productos->precioMayoreo}}</td>
+         <td>{{$productos->nombreDepartamento}}</td>
+         <td>{{$productos->cantidadDeProduct}}</td>
+         <td>{{$productos->cantMinimaProd}}</td>
          <td>
             <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -48,64 +49,8 @@
               <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             </a> 
           </td>
-      </tr>
-      <tr class="row-content">
-         <td>c99</td>
-         <td>Zapatos nicas</td>
-         <td>2000</td>
-         <td>5000</td>
-         <td>2500</td>
-         <td>Zapatosn</td>
-         <td>0</td>
-         <td>1</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Modificar" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-          </td>
-      </tr>
-      <tr class="row-content">
-         <td>d090</td>
-         <td>faja cuero</td>
-         <td>2000</td>
-         <td>5000</td>
-         <td>2500</td>
-         <td>fajax</td>
-         <td>12345</td>
-         <td>1</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Modificar" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-          </td>
-      </tr>
-      <tr class="row-content">
-         <td>mu343</td>
-         <td>Zapatos ticos</td>
-         <td>2000</td>
-         <td>5000</td>
-         <td>2500</td>
-         <td>Zapatost</td>
-         <td>12345</td>
-         <td>1</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Modificar" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-          </td>
-      </tr>
+        </tr>        
+      @endforeach      
    </tbody>
   </table>
 </div>
