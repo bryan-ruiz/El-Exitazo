@@ -15,7 +15,7 @@
 <br>
 @include('partials.filterSearchBar')
 <br>
-<div class="container">
+<div class="container">  
   <table id="contentTable" class="table table-striped">
    <thead>
       <tr class="row-name">
@@ -27,91 +27,30 @@
          <th>Saldo actual</th>
       </tr>
    </thead>   
-   <tbody>
-      <tr class="row-content">
-         <td>1</td>
-         <td>Bryan</td>
-         <td>Bran-Labs</td>
-         <td>8556-1201</td>
-         <td>1000000</td>
-         <td>11820</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Editar" id="edit" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-            &nbsp 
-            <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta" aria-label="Settings">
-              <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-            </a> 
-         </td>
-      </tr>
-      <tr class="row-content">
-         <td> 1</td>
-         <td>Johanna</td>
-         <td>Bran-Labs</td>
-         <td>8556-1201</td>
-         <td>1000000</td>
-         <td>11820</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Editar" id="edit" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-            &nbsp 
-            <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta" aria-label="Settings">
-              <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-            </a> 
-         </td>
-      </tr>
-      <tr class="row-content">
-         <td> 1</td>
-         <td>Aaron</td>
-         <td>Bran-Labs</td>
-         <td>8556-1201</td>
-         <td>1000000</td>
-         <td>11820</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Editar" id="edit" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-            &nbsp 
-            <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta" aria-label="Settings">
-              <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-            </a> 
-         </td>
-      </tr>
-      <tr class="row-content">
-         <td> 1</td>
-         <td>Pedro</td>
-         <td>Bran-Labs</td>
-         <td>8556-1201</td>
-         <td>1000000</td>
-         <td>11820</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Editar" id="edit" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-            &nbsp 
-            <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta" aria-label="Settings">
-              <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-            </a> 
-         </td>
-      </tr>
+   <tbody>    
+      @foreach($clientes as $clientes)        
+        <tr class="row-content">
+           <td>{{$clientes->numeroPersona}}</td>
+           <td>{{$clientes->nombrePersona}}</td>
+           <td>{{$clientes->direccion}}</td>
+           <td>{{$clientes->telefono}}</td>
+           <td>{{$clientes->limiteDeCredito}}</td>
+           <td>{{$clientes->saldoActual}}</td>
+           <td>
+              <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+              </a>
+              &nbsp 
+              <a title="Editar" id="edit" class="btn btn-warning" aria-label="Settings">
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+              </a> 
+              &nbsp 
+              <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta" aria-label="Settings">
+                <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+              </a> 
+           </td>
+        </tr>
+      @endforeach      
    </tbody>
   </table>
 </div>

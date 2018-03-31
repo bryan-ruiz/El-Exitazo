@@ -4,14 +4,6 @@ use Exitazo
 select * from users
 insert into users(name,type,email,password) values('Johanna','super','rbjoha@gmail.com','123')
 drop table users
-create table users(
-	id int NOT NULL AUTO_INCREMENT,
-    name varchar(100),
-    type int,
-    email varchar(100) unique,
-    password varchar(100),
-    primary key (id)    
-);
 */
 
 
@@ -108,3 +100,22 @@ create table MOVIMIENTOS_CAJAS(
     fecha date,
     primary key (id)
 );
+
+/*                             INERCIONES            */
+
+insert into DEPARTAMENTOS(nombreDepartamento)values('zapatos');
+insert into PRODUCTOS (codigoProducto,descripcion, precioCosto,precioVenta,precioMayoreo,
+						nombreDepartamento, cantidadDeProduct, cantMinimaProd)
+                        values('COD-S01','Sandalias de cuero', 2000, 5000,2800,
+						'zapatos', 20, 1),                        
+                        ('COD-S02','Sandalias de plástico', 800, 2500,1200,
+						'zapatos', 40, 1);
+
+insert into CLIENTES(nombrePersona,direccion,telefono,limiteDeCredito,saldoActual)
+values('Johanna','San José, Costa Rica', '85656547', 50000,2000),
+('Adriana','San José, Costa Rica', '84578547', 30000,2000),
+('Bryan','San Carlos, Costa Rica', '82357807', 20000,0),
+('Aaron','San José, Costa Rica', '81346560', 10000,0),
+('Sofia','Heredia, Costa Rica', '81646444', 15000,7800);
+
+

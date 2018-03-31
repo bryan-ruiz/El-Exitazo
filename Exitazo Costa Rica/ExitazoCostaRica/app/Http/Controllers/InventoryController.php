@@ -17,14 +17,14 @@ class InventoryController extends Controller
     {
         $productos = DB::table('PRODUCTOS')->select('codigoProducto', 'descripcion','precioCosto','precioVenta','precioMayoreo',
             'nombreDepartamento','cantidadDeProduct','cantMinimaProd')->get();
-        //echo $productos;
-        //return $productos;
         return view('inventories', compact('productos'));
     }
 
     public function customerView()
     {
-        return view('customers');
+        $clientes = DB::table('CLIENTES')->select('numeroPersona', 'nombrePersona','direccion','telefono','limiteDeCredito',
+            'saldoActual')->get();        
+        return view('customers', compact('clientes'));
     }
 
     public function createOutComingView()
