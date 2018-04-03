@@ -21,22 +21,12 @@
       </tr>
    </thead>   
    <tbody>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>23450</td>
-      </tr>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>23450</td>
-      </tr>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>23450</td>
-      </tr>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>22000</td>
-      </tr>
+      @foreach($entradas as $entradas)
+        <tr class="row-content">
+           <td>{{$entradas->motivo}}</td>
+           <td>{{$entradas->montoDinero}}</td>
+        </tr>
+      @endforeach
    </tbody>
   </table>
 </div>

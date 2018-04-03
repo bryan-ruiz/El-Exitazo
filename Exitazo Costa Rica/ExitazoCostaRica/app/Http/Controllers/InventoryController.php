@@ -80,12 +80,14 @@ class InventoryController extends Controller
 
     public function outComingView()
     {
-        return view('outComing');
+        $salidas = DB::table('MOVIMIENTOS_CAJAS')->select('id', 'tipo','motivo','montoDinero','fecha')->where('tipo', '=', 'salida')->get();
+        return view('outComing',compact('salidas'));
     }
 
     public function inComingView()
     {
-        return view('inComing');
+        $entradas = DB::table('MOVIMIENTOS_CAJAS')->select('id', 'tipo','motivo','montoDinero','fecha')->where('tipo', '=', 'entrada')->get();
+        return view('inComing', compact('entradas'));        
     }
     
 }
