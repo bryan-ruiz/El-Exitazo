@@ -21,25 +21,25 @@
         <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Dirección</label>
             <div class="col-xs-5">
-                <input type="text" class="form-control" id="inputPassword" placeholder="Dirección" value="{{$user->nombrePersona}}" disabled>
+                <input type="text" class="form-control" id="inputPassword" placeholder="Dirección" value="{{$user->direccion}}" disabled>
             </div>
         </div>
             <div class="form-group">
             <label for="inputEmail" class="control-label col-xs-2">Teléfono</label>
             <div class="col-xs-5">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Teléfono" value="{{$user->nombrePersona}}" disabled>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Teléfono" value="{{$user->telefono}}" disabled>
             </div>
         </div>
         <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Límite de credito</label>
             <div class="col-xs-5">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Límite de credito" value="{{$user->nombrePersona}}" disabled>
+                <input class="form-control" id="inputPassword" placeholder="Límite de credito" value="{{$user->limiteDeCredito}}" disabled>
             </div>
         </div>
         <div class="form-group">
                 <label for="inputPassword" class="control-label col-xs-2">Saldo actual</label>
                 <div class="col-xs-5">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Saldo actual" value="{{$user->nombrePersona}}" disabled>
+                    <input class="form-control" id="inputPassword" placeholder="Saldo actual" value="{{$user->saldoActual}}" disabled>
                 </div>
             </div>
     </div>
