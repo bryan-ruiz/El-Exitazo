@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Department;
 use Illuminate\Http\Request;
+use DB;
+use Redirect;
 
 class DepartmentController extends Controller
 {
@@ -78,8 +80,11 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Department $department)
+    public function destroy($id)
     {
-        //
+        DB::table('DEPARTAMENTOS')
+        ->where('nombreDepartamento', $id)
+        ->delete();
+        return Redirect::to('/departamento');
     }
 }

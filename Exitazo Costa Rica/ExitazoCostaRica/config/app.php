@@ -151,6 +151,13 @@ return [
          * Package Service Providers...
          */
 
+
+
+        /*sweet alert*/
+        /*UxWeb\SweetAlert\SweetAlertServiceProvider::class,*/
+
+
+        
         /*
          * Application Service Providers...
          */
@@ -208,6 +215,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        /*sweet alert*/
+        /*
+        'Alert' => UxWeb\SweetAlert\SweetAlert::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,*/
 
     ],
 

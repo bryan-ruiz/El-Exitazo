@@ -10,11 +10,12 @@
 @include('partials.inventoriesMenu')
 <br> 
 <div class="container">
-  <form class="form-horizontal">
+  <form class="form-horizontal" method="post" action="/crear/departamento" accept-charset="UTF-8">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-4">Nombre del departamento</label>
+          <label for="inputDepart" class="control-label col-xs-4">Nombre del departamento</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Departamento">
+              <input type="text" class="form-control" name="inputDepart" id="inputDepart" placeholder="Departamento">
           </div>
       </div>
       

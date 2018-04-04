@@ -15,7 +15,7 @@
         <div class="form-group">
             <label for="inputEmail" class="control-label col-xs-2">Nombre completo</label>
             <div class="col-xs-5">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Nombre completo">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Nombre completo" value="$clientes->numeroPersona">
             </div>
         </div>
         <div class="form-group">
@@ -62,41 +62,21 @@
          <td>1</td>
          <td>12/01/2018</td>
          <td>90550</td>
-         <td>
-             <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-        </td>
       </tr>
       <tr class="row-content">
          <td> 1</td>
          <td>12/01/2018</td>
          <td>1000</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-        </td>
       </tr>
       <tr class="row-content">
          <td> 1</td>
          <td>12/01/2018</td>
          <td>12500</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-        </td>
       </tr>
       <tr class="row-content">
          <td> 1</td>
          <td>12/01/2018</td>
          <td>55000</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-        </td>
       </tr>
    </tbody>
   </table>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 use Illuminate\Http\Request;
+use DB;
+use Redirect;
 
 class CustomerController extends Controller
 {
@@ -18,10 +20,10 @@ class CustomerController extends Controller
         return view('createCustomer');
     }
 
-    public function accountStatusView()
+    public function accountStatusView(Customer $customer)
     {
         //
-        return view('accountStatus');
+        return view('accountStatus', compact('customer'));
     }
 
     public function paymentToAccountView()
@@ -91,8 +93,11 @@ class CustomerController extends Controller
      * @param  \App\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy($id)
     {
-        //
+        DB::table('CLIENTES')
+        ->where('numeroPersona', $id)
+        ->delete();
+        return Redirect::to('/clientes');
     }
 }

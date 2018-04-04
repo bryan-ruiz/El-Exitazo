@@ -10,29 +10,30 @@
 @include('partials.inventoriesMenu')
 <br>
 <div class="container">
-  <form class="form-horizontal">
+  <form class="form-horizontal" method="post" action="/crear/cliente" accept-charset="UTF-8">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-2">Código de barras</label>
+          <label for="inputCodigoBarras" class="control-label col-xs-2">Código de barras</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Nombre completo">
+              <input type="text" class="form-control" name="inputCodigoBarras" id="inputCodigoBarras" placeholder="Nombre completo">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Descripción</label>
+          <label for="inputDesc" class="control-label col-xs-2">Descripción</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputPassword" placeholder="Descripción">
+              <input type="text" class="form-control" name="inputDesc" id="inputDesc" placeholder="Descripción">
           </div>
       </div>
         <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-2">Precio de costo</label>
+          <label for="inputPrecioCosto" class="control-label col-xs-2">Precio de costo</label>
           <div class="col-xs-5">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Precio de costo">
+              <input type="text" class="form-control" name="inputPrecioCosto" id="inputPrecioCosto" placeholder="Precio de costo">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Precio de venta</label>
+          <label for="inputPrecioVenta" class="control-label col-xs-2">Precio de venta</label>
           <div class="col-xs-5">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Precio de venta">
+              <input type="text" class="form-control" name="inputPrecioVenta" id="inputPrecioVenta" placeholder="Precio de venta">
           </div>
       </div>
       <div class="form-group">
@@ -42,8 +43,8 @@
           </div>
       </div>
       <div class="form-group">
-          <label for="inputDepartment" class="control-label col-xs-2">Departamento</label>
-          <select style="width: 39%;margin-left: 18%" class="input form-control pdi-spacing-02" id="field1" name="prof1">
+          <label for="inputDep" class="control-label col-xs-2">Departamento</label>
+          <select style="width: 39%;margin-left: 18%" class="input form-control pdi-spacing-02" id="inputDep" name="inputDep">
               <option>Seleccione el departamento...</option>
               <option>Zapatos</option>
               <option>Bolsos</option>
@@ -52,15 +53,15 @@
           </select>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Cantidad actual</label>
+          <label for="inputCantidad" class="control-label col-xs-2">Cantidad actual</label>
           <div class="col-xs-5">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Cantidad actual">
+              <input type="text" class="form-control" name="inputCantidad" id="inputCantidad" placeholder="Cantidad actual">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Minimo</label>
+          <label for="inputMinimo" class="control-label col-xs-2">Minimo</label>
           <div class="col-xs-5">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Minimo">
+              <input type="password" class="form-control" name="inputMinimo" id="inputMinimo" placeholder="Minimo">
           </div>
       </div>
       <div class="form-group">

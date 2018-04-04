@@ -22,10 +22,11 @@
       </tr>
    </thead>   
    <tbody>
+    @foreach($departamentos as $departamentos)
       <tr class="row-content">
-         <td>Zapatos</td>
+         <td>{{$departamentos->nombreDepartamento}}</td>
          <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
+            <a title="Eliminar" class="btn btn-danger" href="/eliminar/departamento/{{$departamentos->nombreDepartamento}}" aria-label="Settings">
               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
             &nbsp 
@@ -33,43 +34,8 @@
               <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             </a> 
           </td>
-      </tr>
-      <tr class="row-content">
-         <td>Cuero</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Modificar" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-          </td>
-      </tr>
-      <tr class="row-content">
-         <td>Sandalias</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Modificar" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-          </td>
-      </tr>
-      <tr class="row-content">
-         <td>Monedero</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-            &nbsp 
-            <a title="Modificar" class="btn btn-warning" aria-label="Settings">
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-            </a> 
-          </td>
-      </tr>
+      </tr>      
+    @endforeach
    </tbody>
   </table>
 </div>

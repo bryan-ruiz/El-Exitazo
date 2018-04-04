@@ -10,17 +10,18 @@
 @include('partials.sellingsMenu')
 <br>  
 <div class="container">	
-  <form class="form-horizontal">	
+  <form class="form-horizontal" method="post" action="/crear/salida" accept-charset="UTF-8"> 
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">  
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-4">Motivo</label>
+          <label for="inputMotivo" class="control-label col-xs-4">Motivo</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Motivo">
+              <input type="text" class="form-control" name="inputMotivo" id="inputMotivo" placeholder="Motivo">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-4">Monto de dinero</label>
+          <label for="inputMonto" class="control-label col-xs-4">Monto de dinero</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Monto de dinero">
+              <input type="text" class="form-control" name="inputMonto"  id="inputMonto" placeholder="Monto de dinero">
           </div>
       </div>
       <div class="form-group">

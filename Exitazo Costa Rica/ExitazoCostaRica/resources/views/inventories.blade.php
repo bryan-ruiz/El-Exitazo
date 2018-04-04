@@ -41,7 +41,7 @@
          <td>{{$productos->cantidadDeProduct}}</td>
          <td>{{$productos->cantMinimaProd}}</td>
          <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
+            <a title="Eliminar" class="btn btn-danger" href="/eliminar/producto/{{$productos->codigoProducto}}" aria-label="Settings">
               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
             &nbsp 

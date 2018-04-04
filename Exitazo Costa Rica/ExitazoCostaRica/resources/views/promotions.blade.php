@@ -26,54 +26,20 @@
       </tr>
    </thead>   
    <tbody>
+    @foreach($promociones as $promociones)
       <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>ZC3</td>
-         <td>12/12/2012</td>
-         <td>25/12/2012</td>
-         <td>23450</td>
+         <td>{{$promociones->nombrePromocion}}</td>
+         <td>{{$promociones->codigoProducto}}</td>
+         <td>{{$promociones->cantidadProdMinimo}}</td>
+         <td>{{$promociones->cantidadProdMax}}</td>
+         <td>{{$promociones->precioUnit}}</td>
          <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
+            <a title="Eliminar" class="btn btn-danger" href="/eliminar/promocion/{{$promociones->nombrePromocion}}" aria-label="Settings">
               <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
             </a>
           </td>
-      </tr>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>ZC3</td>
-         <td>12/12/2012</td>
-         <td>25/12/2012</td>
-         <td>23450</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
-      </tr>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>ZC3</td>
-         <td>12/12/2012</td>
-         <td>25/12/2012</td>
-         <td>23450</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
-      </tr>
-      <tr class="row-content">
-         <td>Zapatos navideños</td>
-         <td>ZC3</td>
-         <td>12/12/2012</td>
-         <td>25/12/2012</td>
-         <td>1200</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
-      </tr>
+      </tr>    
+    @endforeach  
    </tbody>
   </table>
 </div>

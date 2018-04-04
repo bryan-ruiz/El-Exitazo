@@ -10,29 +10,30 @@
 @include('partials.customersMenu')
 <br>
 <div class="container">
-  <form class="form-horizontal">
+  <form class="form-horizontal" method="post" action="/crear/cliente" accept-charset="UTF-8">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">  
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-2">Nombre completo</label>
+          <label for="inputNombre" class="control-label col-xs-2">Nombre completo</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Nombre completo">
+              <input type="text" name="inputNombre" class="form-control" id="inputNombre" placeholder="Nombre completo">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Dirección</label>
+          <label for="inputDireccion" class="control-label col-xs-2">Dirección</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputPassword" placeholder="Dirección">
+              <input type="text" name="inputDireccion" class="form-control" id="inputDireccion" placeholder="Dirección">
           </div>
       </div>
         <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-2">Teléfono</label>
+          <label for="inputTelefono" class="control-label col-xs-2">Teléfono</label>
           <div class="col-xs-5">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Teléfono">
+              <input type="text" name="inputTelefono" class="form-control" id="inputTelefono" placeholder="Teléfono">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Límite de credito</label>
+          <label for="inputLimiteCredito" class="control-label col-xs-2">Límite de credito</label>
           <div class="col-xs-5">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Límite de credito">
+              <input type="text" name="inputLimiteCredito" class="form-control" id="inputLimiteCredito" placeholder="Límite de credito">
           </div>
       </div>
       

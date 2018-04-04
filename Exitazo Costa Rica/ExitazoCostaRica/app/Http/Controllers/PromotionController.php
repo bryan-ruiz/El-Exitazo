@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Promotion;
 use Illuminate\Http\Request;
+use DB;
+use Redirect;
 
 class PromotionController extends Controller
 {
@@ -78,8 +80,11 @@ class PromotionController extends Controller
      * @param  \App\Promotion  $promotion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Promotion $promotion)
+    public function destroy($id)
     {
-        //
+        DB::table('PROMOCIONES')
+        ->where('nombrePromocion', $id)
+        ->delete();
+        return Redirect::to('/promocion');
     }
 }

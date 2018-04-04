@@ -37,7 +37,8 @@
            <td>{{$clientes->limiteDeCredito}}</td>
            <td>{{$clientes->saldoActual}}</td>
            <td>
-              <a title="Eliminar" class="btn btn-danger" href="path/to/settings" aria-label="Settings">
+           
+              <a title="Eliminar" class="btn btn-danger" href="/eliminar/cliente/{{$clientes->numeroPersona}}" aria-label="Settings">
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
               </a>
               &nbsp 

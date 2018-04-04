@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use DB;
+use Redirect;
 
 class ProductController extends Controller
 {
@@ -78,8 +80,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        DB::table('PRODUCTOS')
+        ->where('codigoProducto', $id)
+        ->delete();
+        return Redirect::to('/inventario');
     }
 }

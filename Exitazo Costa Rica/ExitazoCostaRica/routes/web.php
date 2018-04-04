@@ -15,16 +15,32 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
+
+//post
+Route::post('/crear/entrada', 'InventoryController@createInComing');
+Route::post('/crear/salida', 'InventoryController@createOutComing');
+
+Route::post('/crear/cliente', 'InventoryController@createClient');
+Route::post('/crear/producto', 'InventoryController@createClient');
+Route::post('/crear/departamento', 'InventoryController@createDepartment');
 
 
-Route::get('/login', function () {
-    return view('login');
-});
-*/
+//Put
+Route::put('/modificar/cliente/{id}', 'CustomerController@update');
+Route::put('/modificar/departamento/{id}', 'CustomerController@update');
+Route::put('/modificar/producto/{id}', 'CustomerController@update');
+
+//Delete
+Route::get('/eliminar/cliente/{id}', 'CustomerController@destroy');
+Route::get('/eliminar/departamento/{id}', 'DepartmentController@destroy');
+Route::get('/eliminar/producto/{id}', 'ProductController@destroy');
+Route::get('/eliminar/entrada/{id}', 'CustomerController@destroy');
+Route::get('/eliminar/salida/{id}', 'CustomerController@destroy');
+Route::get('/eliminar/promocion/{id}', 'CustomerController@destroy');
+
+
+
+
 //Main views
 Route::get('/clientes', 'InventoryController@customerView');
 Route::get('/departamento', 'InventoryController@departmentView');
@@ -53,9 +69,3 @@ Route::get('/crearSalida', 'InventoryController@createOutComingView');
 Route::put('user/{id}', 'UserController@update');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
