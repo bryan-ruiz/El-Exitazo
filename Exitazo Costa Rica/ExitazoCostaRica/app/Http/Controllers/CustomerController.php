@@ -20,10 +20,11 @@ class CustomerController extends Controller
         return view('createCustomer');
     }
 
-    public function accountStatusView(Customer $customer)
+    public function accountStatusView($customer)
     {
         //
-        return view('accountStatus', compact('customer'));
+        $user = DB::table('CLIENTES')->where('numeroPersona', $customer)->first();
+        return view('accountStatus', compact('user'));
     }
 
     public function paymentToAccountView()

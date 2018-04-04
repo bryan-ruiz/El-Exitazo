@@ -44,7 +44,7 @@ Route::get('/eliminar/promocion/{id}', 'CustomerController@destroy');
 //Main views
 Route::get('/clientes', 'InventoryController@customerView');
 Route::get('/departamento', 'InventoryController@departmentView');
-Route::get('/estadoDeCuenta', 'CustomerController@accountStatusView');
+Route::get('/estadoDeCuenta/{id}', 'CustomerController@accountStatusView');
 Route::get('/inventario', 'InventoryController@index');
 Route::get('/promocion', 'InventoryController@promotionView');
 Route::get('/reporteDeInventario', 'InventoryController@inventoryReportView');

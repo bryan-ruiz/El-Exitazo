@@ -46,7 +46,7 @@
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
               </a> 
               &nbsp 
-              <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta" aria-label="Settings">
+              <a title="Estado de cuenta" class="btn btn-primary" href="/estadoDeCuenta/{{$clientes->numeroPersona}}" aria-label="Settings">
                 <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
               </a> 
            </td>
