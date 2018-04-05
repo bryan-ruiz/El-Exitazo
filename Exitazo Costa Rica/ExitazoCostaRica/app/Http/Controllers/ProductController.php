@@ -16,7 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('createProduct');
+        $productos = DB::table('PRODUCTOS')->select('codigoProducto', 'descripcion','precioCosto','precioVenta','precioMayoreo',
+            'nombreDepartamento','cantidadDeProduct','cantMinimaProd')->get();
+        return view('createProduct', compact('productos'));        
     }
 
     /**
@@ -24,9 +26,24 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $inputCodigoBarras = $request->input('inputCodigoBarras');
+        $inputDesc = $request->input('inputDesc');            
+        $inputPrecioCosto = $request->input('inputPrecioCosto');
+        $inputPrecioVenta = $request->input('inputPrecioVenta');
+        $inputPrecioMayoreo = $request->input('inputPrecioMayoreo');
+        $inputCantidad = $request->input('inputCantidad');
+        $inputMinimo = $request->input('inputMinimo');
+        
+        
+        DB::insert('insert into PRODUCTOS(codigoProducto,descripcion,precioCosto,precioVenta,precioMayoreo,nombreDepartamento,cantidadDeProduct,cantMinimaProd) values(?,?,?,?,?,?,?,?)',
+            [$inputCodigoBarras,$inputDesc,$inputPrecioCosto,$inputPrecioVenta,$inputPrecioMayoreo,'zapatos',$inputCantidad,$inputMinimo]);     
+
+        /*POR MIENTRAS*/   
+        $productos = DB::table('PRODUCTOS')->select('codigoProducto', 'descripcion','precioCosto','precioVenta','precioMayoreo',
+            'nombreDepartamento','cantidadDeProduct','cantMinimaProd')->get();
+        return view('inventories', compact('productos'));
     }
 
     /**

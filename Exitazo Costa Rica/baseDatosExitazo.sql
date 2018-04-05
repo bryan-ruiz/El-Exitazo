@@ -1,15 +1,12 @@
 /*
 create database Exitazo
 use Exitazo
-select * from users
-insert into users(name,type,email,password) values('Johanna','super','rbjoha@gmail.com','123')
 drop table users
 */
 
-
 					/**************		TABLAS		***********************/
 
-
+select * from users
 
 create table LOCALES(	
 	nombreLocal varchar(100),
@@ -36,6 +33,8 @@ create table PRODUCTOS(
         REFERENCES DEPARTAMENTOS(nombreDepartamento)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 
 create table PROMOCIONES(
 	id int NOT NULL AUTO_INCREMENT,
@@ -81,6 +80,11 @@ create table CLIENTES(
     primary key (numeroPersona)
 );
 
+
+update CLIENTES set saldoActual= 30000 where numeroPersona = 1
+
+
+
 create table ABONOS(
 	id int NOT NULL AUTO_INCREMENT,
     fechaAbono date,
@@ -92,6 +96,8 @@ create table ABONOS(
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+
 create table MOVIMIENTOS_CAJAS(
 	id int NOT NULL AUTO_INCREMENT,
     tipo varchar(20),
@@ -101,9 +107,15 @@ create table MOVIMIENTOS_CAJAS(
     primary key (id)
 );
 
-/*                             INERCIONES            */
 
-insert into DEPARTAMENTOS(nombreDepartamento)values('zapatos');
+
+/*                             INSERCIONES            */
+
+
+
+insert into DEPARTAMENTOS(nombreDepartamento)values('zapatos'),('ropa'),('cuero'),('fajas'),('bolsos');
+
+
 insert into PRODUCTOS (codigoProducto,descripcion, precioCosto,precioVenta,precioMayoreo,
 						nombreDepartamento, cantidadDeProduct, cantMinimaProd)
                         values('COD-S01','Sandalias de cuero', 2000, 5000,2800,
@@ -119,3 +131,6 @@ values('Johanna','San José, Costa Rica', '85656547', 50000,2000),
 ('Sofia','Heredia, Costa Rica', '81646444', 15000,7800);
 
 
+insert into MOVIMIENTOS_CAJAS(tipo, motivo, montoDinero,fecha)values('entrada','venta de zapatos de cuero',20000,
+'2018-02-19'),('entrada','venta de camisas',47800,'2018-03-13'),('salida','pago de luz',44000,'2018-03-03'),
+('salida','pago de agua',20000,'2018-02-05');

@@ -45,7 +45,7 @@
     </div>
 </div>
 <br>
-<a href="/crearAbono" style="margin-left: 20%" class="btn btn-info cboxElement">Agregar abono</a>
+<a href="/crearAbono/{{$user->numeroPersona}}" style="margin-left: 20%" class="btn btn-info cboxElement">Agregar abono</a>
 <br>
 <br>
 <div class="container">
@@ -58,26 +58,13 @@
       </tr>
    </thead>   
    <tbody>
+    @foreach($abonos as $abonos)
       <tr class="row-content">
-         <td>1</td>
-         <td>12/01/2018</td>
-         <td>90550</td>
-      </tr>
-      <tr class="row-content">
-         <td> 1</td>
-         <td>12/01/2018</td>
-         <td>1000</td>
-      </tr>
-      <tr class="row-content">
-         <td> 1</td>
-         <td>12/01/2018</td>
-         <td>12500</td>
-      </tr>
-      <tr class="row-content">
-         <td> 1</td>
-         <td>12/01/2018</td>
-         <td>55000</td>
-      </tr>
+         <td>{{$abonos->id}}</td>
+         <td>{{$abonos->fechaAbono}}</td>
+         <td>{{$abonos->monto}}</td>
+      </tr>      
+    @endforeach
    </tbody>
   </table>
 </div>

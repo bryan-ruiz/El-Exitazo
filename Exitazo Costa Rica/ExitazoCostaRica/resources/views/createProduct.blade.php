@@ -10,7 +10,7 @@
 @include('partials.inventoriesMenu')
 <br>
 <div class="container">
-  <form class="form-horizontal" method="post" action="/crear/cliente" accept-charset="UTF-8">
+  <form class="form-horizontal" method="post" action="/crear/producto" accept-charset="UTF-8">
     <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
       <div class="form-group">
           <label for="inputCodigoBarras" class="control-label col-xs-2">Código de barras</label>
@@ -37,9 +37,9 @@
           </div>
       </div>
       <div class="form-group">
-          <label for="inputPassword" class="control-label col-xs-2">Precio de mayoreo</label>
+          <label for="inputPrecioMayoreo" class="control-label col-xs-2">Precio de mayoreo</label>
           <div class="col-xs-5">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Precio de mayoreo">
+              <input type="text" class="form-control" name="inputPrecioMayoreo" id="inputPrecioMayoreo" placeholder="Precio de mayoreo">
           </div>
       </div>
       <div class="form-group">
@@ -61,7 +61,7 @@
       <div class="form-group">
           <label for="inputMinimo" class="control-label col-xs-2">Minimo</label>
           <div class="col-xs-5">
-              <input type="password" class="form-control" name="inputMinimo" id="inputMinimo" placeholder="Minimo">
+              <input type="text" class="form-control" name="inputMinimo" id="inputMinimo" placeholder="Minimo">
           </div>
       </div>
       <div class="form-group">

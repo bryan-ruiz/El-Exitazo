@@ -24,7 +24,7 @@
   </div>
 </div>
 <br>
-<a id="test">PRUEBA REDIRECCION</a>
+<a id="test"></a>
 <br>
 <span style="margin-left: 165px" id="billBar"></span>
 <br>

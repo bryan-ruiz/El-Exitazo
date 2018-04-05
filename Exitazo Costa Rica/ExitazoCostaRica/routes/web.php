@@ -21,9 +21,10 @@ Route::post('/crear/entrada', 'InventoryController@createInComing');
 Route::post('/crear/salida', 'InventoryController@createOutComing');
 
 Route::post('/crear/cliente', 'InventoryController@createClient');
-Route::post('/crear/producto', 'InventoryController@createClient');
+Route::post('/crear/producto', 'ProductController@create');
 Route::post('/crear/departamento', 'InventoryController@createDepartment');
-
+Route::post('/crear/abono', 'CustomerController@createPaymentToAccountBD');
+Route::post('/crear/promocion', 'InventoryController@createPromotion');
 
 //Put
 Route::put('/modificar/cliente/{id}', 'CustomerController@update');
@@ -36,7 +37,7 @@ Route::get('/eliminar/departamento/{id}', 'DepartmentController@destroy');
 Route::get('/eliminar/producto/{id}', 'ProductController@destroy');
 Route::get('/eliminar/entrada/{id}', 'CustomerController@destroy');
 Route::get('/eliminar/salida/{id}', 'CustomerController@destroy');
-Route::get('/eliminar/promocion/{id}', 'CustomerController@destroy');
+Route::get('/eliminar/promocion/{id}', 'PromotionController@destroy');
 
 
 
@@ -57,7 +58,7 @@ Route::get('/ventas', 'InventoryController@sellingView');
 Route::get('/ventasPorPeriodo', 'InventoryController@sellingPeriodView');
 
 //Create - Update views
-Route::get('/crearAbono', 'CustomerController@paymentToAccountView');
+Route::get('/crearAbono/{numeroPersona}', 'CustomerController@paymentToAccountView');
 Route::get('/crearCliente', 'CustomerController@index');
 Route::get('/crearDepartamento', 'DepartmentController@index');
 Route::get('/crearEntrada', 'InventoryController@createInComingView');

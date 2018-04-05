@@ -23,14 +23,31 @@ class CustomerController extends Controller
     public function accountStatusView($customer)
     {
         //
+        $abonos = DB::table('ABONOS')->where('numeroPersona', $customer)->get();
         $user = DB::table('CLIENTES')->where('numeroPersona', $customer)->first();
-        return view('accountStatus', compact('user'));
+        return view('accountStatus', compact('user','abonos'));
     }
 
-    public function paymentToAccountView()
+    public function paymentToAccountView($numeroPersona)
     {
-        //
-        return view('createPaymentToAccount');
+        
+        return view('createPaymentToAccount', compact('numeroPersona'));
+    }
+
+    public function createPaymentToAccountBD(Request $request){
+        $inputFecha = $request->input('inputFechaAbono');
+        $inputAbono = $request->input('inputAbono');                
+        $persona = $request->input('persona');                
+        
+        DB::insert('insert into ABONOS(fechaAbono,monto,numeroPersona) values(?,?,?)',[$inputFecha,$inputAbono,$persona]);
+
+        DB::update('update CLIENTES set saldoActual= saldoActual - ? where numeroPersona = ?',[$inputAbono,$persona]);
+        
+        //por mientras
+        $abonos = DB::table('ABONOS')->where('numeroPersona', $persona)->get();
+        $user = DB::table('CLIENTES')->where('numeroPersona', $persona)->first();
+        return view('accountStatus', compact('user','abonos'));
+        
     }
 
     /**

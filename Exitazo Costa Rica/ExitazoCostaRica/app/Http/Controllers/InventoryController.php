@@ -91,14 +91,16 @@ class InventoryController extends Controller
         return view('promotions',compact('promociones'));
     }
 
-    public function createPromotion()
+    public function createPromotion(Request $request)
     {        
-        $nombrePromocion = $request->input('inputMonto');
-        $inputMotivo = $request->input('inputMotivo');                    
+        $inputnombre = $request->input('inputnombre');
+        $inputCodBarras = $request->input('inputCodBarras');            
+        $inputCantidadInicial = $request->input('inputCantidadInicial');
+        $inputCantidadFinal = $request->input('inputCantidadFinal');
+        $inputPrecio = $request->input('inputPrecio');                   
         
-        $fecha=$fechaAnno."-".$fechaMes."-".$fechaDia;
-        DB::insert('insert into MOVIMIENTOS_CAJAS(tipo,motivo,montoDinero,fecha) values(?,?,?,?)',['salida',
-            $inputMotivo,$inputMontoDinero,$fecha]);            
+        DB::insert('insert into PROMOCIONES(nombrePromocion,codigoProducto,cantidadProdMinimo,cantidadProdMax,precioUnit) values(?,?,?,?,?)',
+            [$inputnombre,$inputCodBarras,$inputCantidadInicial,$inputCantidadFinal,$inputPrecio]);            
 
         /*POR MIENTRAS*/   
         $promociones = DB::table('PROMOCIONES')->select('nombrePromocion', 'codigoProducto','cantidadProdMinimo','cantidadProdMax','precioUnit')->get();

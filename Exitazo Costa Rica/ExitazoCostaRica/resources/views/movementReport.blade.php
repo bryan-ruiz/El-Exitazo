@@ -80,11 +80,6 @@
          <td>23450</td>
          <td>Bryan</td>
          <td>Zapatos</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
       </tr>
       <tr class="row-content">
          <td>12:00</td>
@@ -94,11 +89,6 @@
          <td>23450</td>
          <td>Bryan</td>
          <td>Zapatos</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
       </tr>
       <tr class="row-content">
          <td>12:00</td>
@@ -108,11 +98,6 @@
          <td>23450</td>
          <td>Bryan</td>
          <td>Zapatos</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
       </tr>
       <tr class="row-content">
          <td>12:00</td>
@@ -122,11 +107,6 @@
          <td>23450</td>
          <td>Bryan</td>
          <td>Zapatos</td>
-         <td>
-            <a title="Eliminar" class="btn btn-danger" aria-label="Settings">
-              <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-            </a>
-          </td>
       </tr>
    </tbody>
   </table>

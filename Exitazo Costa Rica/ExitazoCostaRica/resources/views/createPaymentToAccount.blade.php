@@ -9,18 +9,20 @@
 <br>
 @include('partials.customersMenu')
 <br>  
-<div class="container">	
-  <form class="form-horizontal">
+<div class="container">	  
+  <form class="form-horizontal" method="post" action="/crear/abono" accept-charset="UTF-8"> 
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="persona" value="{{$numeroPersona}}">
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-4">Fecha del abono</label>
+          <label for="inputFechaAbono" class="control-label col-xs-4">Fecha del abono</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Fecha del abono">
+              <input type="text" class="form-control" name="inputFechaAbono" id="inputFechaAbono" placeholder="AAAA-MM-DD">
           </div>
       </div>
       <div class="form-group">
-          <label for="inputEmail" class="control-label col-xs-4">Monto del abono</label>
+          <label for="inputAbono" class="control-label col-xs-4">Monto del abono</label>
           <div class="col-xs-5">
-              <input type="text" class="form-control" id="inputEmail" placeholder="Monto del abono">
+              <input type="text" class="form-control" name="inputAbono" id="inputAbono" placeholder="Monto del abono">
           </div>
       </div>
       <div class="form-group">
