@@ -26,6 +26,8 @@ Route::post('/crear/departamento', 'InventoryController@createDepartment');
 Route::post('/crear/abono', 'CustomerController@createPaymentToAccountBD');
 Route::post('/crear/promocion', 'InventoryController@createPromotion');
 
+
+
 //Put
 Route::put('/modificar/cliente/{id}', 'CustomerController@update');
 Route::put('/modificar/departamento/{id}', 'CustomerController@update');
@@ -56,6 +58,9 @@ Route::get('/tiqueteVentasDevoluciones', 'InventoryController@billSalesAndReturn
 Route::get('/ventasDevoluciones', 'InventoryController@salesAndReturnsView');
 Route::get('/ventas', 'InventoryController@sellingView');
 Route::get('/ventasPorPeriodo', 'InventoryController@sellingPeriodView');
+
+Route::get('/facturas/insrtListProv/{id}', 'sellController@findProduct');
+
 
 //Create - Update views
 Route::get('/crearAbono/{numeroPersona}', 'CustomerController@paymentToAccountView');

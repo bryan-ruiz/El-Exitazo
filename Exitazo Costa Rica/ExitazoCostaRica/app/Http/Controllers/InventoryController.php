@@ -114,7 +114,8 @@ class InventoryController extends Controller
 
     public function sellingView()
     {
-        return view('selling');
+        $lista=[];
+        return view('selling',compact('lista'));
     }
 
     public function movementReportView()
