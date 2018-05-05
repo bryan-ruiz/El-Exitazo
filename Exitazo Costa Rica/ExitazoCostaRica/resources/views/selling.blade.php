@@ -49,7 +49,7 @@
 <br>
 <div class="container">
   <div class="row">
-    <h2 style="">Productos en la venta actual:&nbsp <span>0</span></h2>
+    <h2 style="">Productos en la venta actual:&nbsp <span id="prodVentaAct">0</span></h2>
     <h2 style="float: right; margin-right: 5%" id="total">₡:&nbsp <span>0</span></h2>
     <a href="#" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 5%">F12 Cobrar</a>
   </div>
@@ -73,10 +73,17 @@
 <script>
 var listaFactura= [];
 var billNumber = 0;
+var elementRow= 0;
+
+
+function seleccionarElementoTabla(id) {
+  elementRow= id;    
+}
 
 
 function agregarFilaTabla(){  
   var total= 0;
+  var productosEnVentaActual= 0;
   document.getElementById("tableBody").innerHTML= "";
   for (var i = 0; i< listaFactura.length; i++) {    
     var tr = document.createElement('tr');
@@ -102,8 +109,7 @@ function agregarFilaTabla(){
     td_cantidadDePExist.innerHTML = listaFactura[i][0][0].cantidadDeProduct;
 
     var td_botonEliminar = document.createElement('td');
-    td_botonEliminar.innerHTML = "<a class='btn btn-danger edit' href='path/to/settings' aria-label='Settings'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></a>";
-
+    td_botonEliminar.innerHTML = "<button class='btn btn-danger edit' aria-label='Settings' onclick= 'eliminarDeLista("+i+")'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>";        
     tr.appendChild(td_codigoProducto);
     tr.appendChild(td_descripcion);
     tr.appendChild(td_precioVenta);
@@ -111,11 +117,20 @@ function agregarFilaTabla(){
     tr.appendChild(td_importe);
     tr.appendChild(td_cantidadDePExist);
     tr.appendChild(td_botonEliminar);
-
+    tr.addEventListener('click', seleccionarElementoTabla.bind(null, i));  
     document.getElementById("tableBody").appendChild(tr);  
+    productosEnVentaActual=productosEnVentaActual+ listaFactura[i][1];    
   }
   document.getElementById("total").innerHTML= "";  
-  document.getElementById("total").innerHTML= "₡:"+ total;  
+  document.getElementById("total").innerHTML= "₡:"+ total;
+
+  document.getElementById("prodVentaAct").innerHTML= "";  
+  document.getElementById("prodVentaAct").innerHTML= productosEnVentaActual;  
+}
+
+function eliminarDeLista(id){  
+  listaFactura.splice(id, 1);
+  agregarFilaTabla();
 }
 
 function agregarAListaFactura(){
@@ -152,19 +167,19 @@ function loadSite() {
   document.getElementById("buttonDetail").style.background = "#ccc";  
 }
 function getBillQuantity() {
-    var bill = document.getElementById("billBar");
-    var billQuantity = bill.childElementCount;
-    console.log(billQuantity);
-    return billQuantity;
+  var bill = document.getElementById("billBar");
+  var billQuantity = bill.childElementCount;
+  console.log(billQuantity);
+  return billQuantity;
 }
 function addBill() {
-    billNumber += 1;
-    var element = document.createElement("input");
-    element.setAttribute("type", "button");
-    element.setAttribute("value", "factura "+billNumber);
-    element.setAttribute("id", billNumber);
-    var bill = document.getElementById("billBar");
-    bill.appendChild(element);
+  billNumber += 1;
+  var element = document.createElement("input");
+  element.setAttribute("type", "button");
+  element.setAttribute("value", "factura "+billNumber);
+  element.setAttribute("id", billNumber);
+  var bill = document.getElementById("billBar");
+  bill.appendChild(element);
 }
 function findBill() {
   var item = document.getElementById(billNumber);
@@ -173,6 +188,28 @@ function findBill() {
 function deleteBill() {
   var item = findBill();
   item.parentNode.removeChild(item);
+}
+
+function aumentarCantidad(){
+  if(elementRow < listaFactura.length)  {
+    cantidad= listaFactura[elementRow][1]+ 1;
+    existencia= listaFactura[elementRow][0][0].cantidadDeProduct;
+    if(cantidad <= existencia)
+      listaFactura[elementRow][1]= cantidad;
+      listaFactura[elementRow][2]=cantidad * listaFactura[elementRow][0][0].precioVenta;   
+      agregarFilaTabla();
+  }
+}
+
+function disminuirCantidad(){
+  if(elementRow < listaFactura.length)  {
+    cantidad= listaFactura[elementRow][1]-1;
+    if(cantidad > 0){
+      listaFactura[elementRow][1]= cantidad;
+      listaFactura[elementRow][2]=cantidad * listaFactura[elementRow][0][0].precioVenta;
+      agregarFilaTabla();
+    }
+  }
 }
 
 document.addEventListener("keydown", keyDownTextField, false);
@@ -197,6 +234,13 @@ var keyCode = e.keyCode;
   //F7
   else if(keyCode==118) {
     window.location.href = "/entradas";
+  }
+
+  else if(keyCode==187){    
+    aumentarCantidad();
+  }
+  else if(keyCode==189){    
+    disminuirCantidad();
   }
 }
 </script>
