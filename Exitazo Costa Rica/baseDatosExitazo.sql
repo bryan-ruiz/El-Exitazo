@@ -6,7 +6,15 @@ drop table users
 
 					/**************		TABLAS		***********************/
 
-select * from users
+select * from productos;
+
+create table HISTORIAL(
+	id int NOT NULL AUTO_INCREMENT,
+    fecha date,
+    monto int,
+    tipoPago varchar(10),
+    primary key(id)
+);
 
 create table LOCALES(	
 	nombreLocal varchar(100),
