@@ -51,7 +51,7 @@
   <div class="row">
     <h2 style="">Productos en la venta actual:&nbsp <span id="prodVentaAct">0</span></h2>
     <h2 style="float: right; margin-right: 5%" id="total">₡:&nbsp <span>0</span></h2>
-    <a href="#" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 5%">F12 Cobrar</a>
+    <a href="#" onclick="pagar()" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 5%">F12 Cobrar</a>
   </div>
 </div>
 <div class="container">
@@ -64,7 +64,21 @@
 </div>
 <div class="container">
   <div class="row">
-    <h3 style="position: absolute;">Total:&nbsp <span>0</span></h3><h3 style="position: absolute; margin-left: 15%">Pagó con:&nbsp <span>crédito</span></h3><h3 style="position: absolute; margin-left: 35%">Cambio:&nbsp <span>0</span></h3>
+    <h3 style="position: absolute;">Pagó con:&nbsp</h3>    
+    <h3 style="margin-left: 10%">      
+      <input type="radio" name="formaDePago" id="formaDePagoC" value="credito" checked> Crédito<br>
+      <input type="radio" name="formaDePago" id="formaDePagoE" value="efectivo"> Efectivo<br>
+    </h3>    
+    <h3 style="position: absolute;">Cliente: <input style="width: 315px" type="text" name="nombreCliente">
+    </h3>
+    <br>
+    <br>
+    <br>    
+    <h3 style="position: absolute;">Monto: <input style="width: 320px" type="text" name="nombreCliente">
+    </h3>
+    <div style="position: absolute; margin-left: 30%">      
+      <h3 >Cambio:&nbsp <span>0</span></h3>  
+    </div>    
     <a href="#" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 5%">Reimprimir último tiquete</a> 
   <a href="/ventasDevoluciones" rel="nofollow" class="btn btn-default cboxElement" style="float: right; margin-right: 1.5%">Ventas del dia y devoluciones</a>
   </div>
@@ -74,13 +88,37 @@
 var listaFactura= [];
 var billNumber = 0;
 var elementRow= 0;
+var listaPendientes= [];
+var selectedBill= 0;
 
+function insertarPagoEnTablaHist(){
+  
+}
+
+function pagar(){
+  formaDePago= "";
+  PagoE= document.getElementById("formaDePagoE");
+  PagoC= document.getElementById("formaDePagoC");  
+  if(PagoC.checked){
+    formaDePago=PagoC.value;
+  }
+  else{
+    formaDePago=PagoE.value;
+  }
+  listaDeProductos= listaFactura;
+  console.log("A pagado");
+  console.log(formaDePago);
+  console.log(listaDeProductos);
+  //deleteBill();  
+
+
+}
 
 function seleccionarElementoTabla(id) {
   elementRow= id;    
 }
 
-
+  
 function agregarFilaTabla(){  
   var total= 0;
   var productosEnVentaActual= 0;
@@ -154,7 +192,6 @@ function agregarAListaFactura(){
 }
 
 
-
 window.onload = function() {loadSite()};
 function loadSite() {
   var t = document.getElementById("test");
@@ -166,28 +203,73 @@ function loadSite() {
   document.getElementById("buttonBill").style.background = "#ccc";
   document.getElementById("buttonDetail").style.background = "#ccc";  
 }
+
 function getBillQuantity() {
   var bill = document.getElementById("billBar");
   var billQuantity = bill.childElementCount;
   console.log(billQuantity);
   return billQuantity;
 }
+
+function onclickBoton(id){    
+  if(id== 1){
+    listaFactura= [];    
+    agregarFilaTabla();
+  }
+  else{    
+    listaFactura= listaPendientes[id-1][1];          
+    selectedBill= id;    
+    agregarFilaTabla();
+  }  
+}
+
 function addBill() {
-  billNumber += 1;
+  billNumber = listaPendientes.length+1;  
   var element = document.createElement("input");
   element.setAttribute("type", "button");
-  element.setAttribute("value", "factura "+billNumber);
+  if(billNumber == 1){
+    element.setAttribute("value", "factura limpia");  
+  }
+  else{
+    element.setAttribute("value", "factura "+billNumber);
+  }  
   element.setAttribute("id", billNumber);
+  element.setAttribute("onclick", "onclickBoton("+billNumber+")");  
   var bill = document.getElementById("billBar");
-  bill.appendChild(element);
+  bill.appendChild(element);      
+  listaPendientes.push([billNumber,listaFactura]);      
+  listaFactura= [];  
+  agregarFilaTabla();
 }
-function findBill() {
-  var item = document.getElementById(billNumber);
+
+function findBill() {    
+  var item = document.getElementById(selectedBill);
   return item;
 }
+
+
+function buscarEnPendientes(id){
+  for (var i = 0; i < listaPendientes.length ; i++) {
+    if(listaPendientes[i][0]== id){
+      alert("se encontro elemento en pos");
+      alert(i);
+    }
+  }
+}
+
 function deleteBill() {
   var item = findBill();
-  item.parentNode.removeChild(item);
+  billNumber -= 1;
+  if(billNumber >0){      
+      item.parentNode.removeChild(item);                  
+  }  
+  else{
+    billNumber= 1;
+  }  
+  listaFactura= [];
+  //buscarEnPendientes(selectedBill);
+  console.log(listaPendientes);
+  onclickBoton(1);
 }
 
 function aumentarCantidad(){
@@ -217,7 +299,7 @@ function keyDownTextField(e) {
 var keyCode = e.keyCode;
   //F10
   if(keyCode==121) {
-  alert("You hit the F10.");
+    alert("You hit the F10.");
   } 
   //F12
   else if(keyCode==123) {
